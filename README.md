@@ -19,9 +19,9 @@ docker run --rm -d -p 6080:80 -v $PWD:/workspace:rw -e USERNAME=username -e USER
 
 Very Quick Start
 ----------------
-Run ```./startUbuntu.sh```, you will have Ubuntu 22.04 in your browser, with the current working directory mounted on /workspace. The container will be removed when it stops, so save your work in /workspace if you want to keep it.
+Run ```./start.sh```, you will have Ubuntu 22.04 in your browser, with the current working directory mounted on /workspace. The container will be removed when it stops, so save your work in /workspace if you want to keep it.
 
-There is a ```startUbuntu.ps1``` for the PowerShell of Windows. You may have to allow the execution of scripts with the command:
+There is a ```start.ps1``` for the PowerShell of Windows. You may have to allow the execution of scripts with the command:
 
 ```Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser```.
 

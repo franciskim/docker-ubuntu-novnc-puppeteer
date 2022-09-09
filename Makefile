@@ -5,7 +5,7 @@ REPO  ?= franciskim/
 NAME  ?= ubuntu-novnc-puppeteer
 TAG   ?= 22.04
 ARCH  := $$(arch=$$(uname -m); if [[ $$arch == "x86_64" ]]; then echo amd64; else echo $$arch; fi)
-RESOL   = 1440x900
+RESOL   = 1700x950
 ARCHS = amd64 arm64
 IMAGES := $(ARCHS:%=$(REPO)$(NAME):$(TAG)-%)
 PLATFORMS := $$(first="True"; for a in $(ARCHS); do if [[ $$first == "True" ]]; then printf "linux/%s" $$a; first="False"; else printf ",linux/%s" $$a; fi; done)
