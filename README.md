@@ -1,13 +1,15 @@
 docker-ubuntu_22-04-novnc
 ===================
 
-Docker image to provide HTML5 VNC interface to access a Ubuntu 22.04 LXDE desktop environment.
+Docker image to provide HTML5 VNC interface to access a Ubuntu 22.04 LXDE desktop environment that is optimised for running headful Puppeteer instances.
 
-Available on [Docker hub](https://hub.docker.com/r/fredblgr/ubuntu-novnc)
+Available on [Docker hub](https://hub.docker.com/r/franciskim/ubuntu-novnc-puppeteer)
 
-The source files are available on [GitHub](https://github.com/Frederic-Boulanger-UPS/docker-ubuntu_20-04-novnc)
+The source files are available on [GitHub](https://github.com/Frederic-Boulanger-UPS/docker-ubuntu-novnc)
 
-Based on the work by [Doro Wu](https://github.com/fcwu), see on [Docker](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/)
+Based on the work by [Doro Wu](https://github.com/fcwu), adapted by [Frédéric Boulanger](https://github.com/Frederic-Boulanger-UPS)
+ see on [Docker](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/) and [Docker](https://hub.docker.com/r/fredblgr/ubuntu-novnc), respectively.
+
 
 Typical usage is:
 
@@ -120,8 +122,8 @@ You can customize the startup process of the container by adding shell scripts t
 License
 ==================
 
-Apache License Version 2.0, January 2004 http://www.apache.org/licenses/LICENSE-2.0
-
 Original work by [Doro Wu](https://github.com/fcwu)
 
 Adapted by [Frédéric Boulanger](https://github.com/Frederic-Boulanger-UPS)
+
+Adapted again by [Francis Kim](https://github.com/franciskim)

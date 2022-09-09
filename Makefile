@@ -1,8 +1,8 @@
 .PHONY: build manifest buildfat check run debug push save clean clobber
 
 # Default values for variables
-REPO  ?= fredblgr/
-NAME  ?= ubuntu-novnc
+REPO  ?= franciskim/
+NAME  ?= ubuntu-novnc-puppeteer
 TAG   ?= 22.04
 ARCH  := $$(arch=$$(uname -m); if [[ $$arch == "x86_64" ]]; then echo amd64; else echo $$arch; fi)
 RESOL   = 1440x900

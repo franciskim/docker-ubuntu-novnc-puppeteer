@@ -1,7 +1,7 @@
 # Has to be authorized using:
 # Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
-$REPO="fredblgr/"
-$IMAGE="ubuntu-novnc"
+$REPO="franciskim/"
+$IMAGE="ubuntu-novnc-puppeteer"
 $TAG="22.04"
 $RESOL="1440x900"
 docker run --rm -d -p 6080:80 -v "$(PWD):/workspace:rw" -e "RESOLUTION=${RESOL}" --name "${IMAGE}-run" "${REPO}${IMAGE}:${TAG}"

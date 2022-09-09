@@ -1,8 +1,8 @@
 #!/bin/sh
-# Ubuntu 20.04LTS headless noVNC
+# Ubuntu 22.04 LTS headless noVNC
 # Connect to http://localhost:6080/
-REPO=fredblgr/
-IMAGE=ubuntu-novnc
+REPO=franciskim/
+IMAGE=ubuntu-novnc-puppeteer
 TAG=22.04
 URL=http://localhost:6080
 
