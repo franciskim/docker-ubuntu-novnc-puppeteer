@@ -76,6 +76,19 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apt/* /tmp/a.txt /tmp/b.txt
 
+# nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash - \
+    && apt-get install -y nodejs
+
+# chrome
+RUN apt-get update \
+    && apt-get install -y gpg-agent \
+    && curl -LO https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && (dpkg -i ./google-chrome-stable_current_amd64.deb || apt-get install -fy) \
+    && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add \
+    && rm google-chrome-stable_current_amd64.deb \
+    && rm -rf /var/lib/apt/lists/*
+
 
 ################################################################################
 # builder

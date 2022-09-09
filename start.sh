@@ -21,7 +21,7 @@ docker run --rm --detach \
   --publish 6080:80 \
   --volume "${PWD}":/workspace:rw \
   --env USERNAME=${USER_NAME} --env USERID=${USER_ID} \
-  --env RESOLUTION=1400x900 \
+  --env RESOLUTION=1700x950 \
   --name ${IMAGE} \
   ${REPO}${IMAGE}:${TAG}
 
