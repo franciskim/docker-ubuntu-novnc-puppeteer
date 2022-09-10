@@ -94,8 +94,7 @@ for stsrc in /etc/startup/*.sh; do
 done
 
 # Install Puppeteer stuff
-cd ${HOME}/Desktop && npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
-cd ${HOME} && npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+cd ${HOME};npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 
 # clearup
 PASSWORD=

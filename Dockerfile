@@ -44,10 +44,10 @@ RUN wget https://github.com/krallin/tini/archive/v0.19.0.tar.gz \
 # NextCloud
 RUN apt-get update && apt-get install -y nextcloud-desktop
 
-# Firefox with apt, not snap (which does not run in the container)
-COPY mozilla-firefox_aptprefs.txt /etc/apt/preferences.d/mozilla-firefox
-RUN add-apt-repository -y ppa:mozillateam/ppa
-RUN apt-get update && apt-get install -y --allow-downgrades firefox fonts-lyx
+# # Firefox with apt, not snap (which does not run in the container)
+# COPY mozilla-firefox_aptprefs.txt /etc/apt/preferences.d/mozilla-firefox
+# RUN add-apt-repository -y ppa:mozillateam/ppa
+# RUN apt-get update && apt-get install -y --allow-downgrades firefox fonts-lyx
 
 # Killsession app
 COPY killsession/ /tmp/killsession
