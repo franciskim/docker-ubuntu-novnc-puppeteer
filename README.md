@@ -1,4 +1,4 @@
-docker-ubuntu_22-04-novnc
+docker-ubuntu-novnc-puppeteer:22.04
 ===================
 
 Docker image to provide HTML5 VNC interface to access a Ubuntu 22.04 LXDE desktop environment that is optimised for running headful Puppeteer instances.
@@ -14,8 +14,33 @@ Based on the work by [Doro Wu](https://github.com/fcwu), adapted by [Frédéric 
 Typical usage is:
 
 ```
-docker run --rm -d -p 6080:80 -v $PWD:/workspace:rw -e USERNAME=username -e USERID=userid -e RESOLUTION=1700x950 --name ubuntu-novnc franciskim/ubuntu-novnc-puppeteer:22.04
+docker run -p 6080:80 -e RESOLUTION=1700x950 -v /Your/Puppeteer/Workspace:/root/Desktop/scripts franciskim/ubuntu-novnc-puppeteer:22.04 puppeteer-script.js
 ```
+
+This command will allow you to easily mount your workspace on the Docker instance for easy running of your Puppeteer bot. It will also run `node puppeteer-script.js` and you will be able to view your Puppeteer bot working via the VNC server at `http://localhost:6080` 🔥
+
+Protip
+----------------
+```
+async function main() {
+    try {
+        let settings = {
+            channel: 'chrome',
+            headless: false,
+            viewport: null,
+            devtools: false,
+            args: [
+                '--start-maximized',
+                '--disable-popup-blocking',
+                `--disable-extensions-except=${process.cwd()}/extensions/Coinbase-Wallet-extension,${process.cwd()}/extensions/Ethereum-Gas-Price-Extension`
+            ]
+        }
+        if (require('os').userInfo().username == 'root') {
+            settings.args.push('--no-sandbox');
+        }
+```
+Instantiating your headful Puppeteer bot like above will allow the the same bot to be easily run on different environments.
+
 
 Very Quick Start
 ----------------

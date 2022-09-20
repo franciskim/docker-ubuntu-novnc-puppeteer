@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ -n "$VNC_PASSWORD" ]; then
-    echo -n "$VNC_PASSWORD" > /.password1
+    echo -n "$VNC_PASSWORD" >/.password1
     x11vnc -storepasswd $(cat /.password1) /.password2
     sed -i 's/^command=x11vnc.*/& -rfbauth \/.password2/' /etc/supervisor/conf.d/supervisord.conf
-#    echo -n "$VNC_PASSWORD" | vncpasswd -f > /.passwordvnc
+    #    echo -n "$VNC_PASSWORD" | vncpasswd -f > /.passwordvnc
     chmod 400 /.password*
     export VNC_PASSWORD=
 # else
@@ -47,7 +47,7 @@ if [ "$USER" != "root" ]; then
     echo "$USER:$PASSWORD" | chpasswd
     cp -r /root/{.profile,.bashrc,.config,.gtkrc-2.0,.gtk-bookmarks} ${HOME}
     if [ -r "/root/.novnc_setup" ]; then
-      source /root/.novnc_setup
+        source /root/.novnc_setup
     fi
     chown -R $USER:$USER ${HOME}
     [ -d "/dev/snd" ] && chgrp -R adm /dev/snd
@@ -67,37 +67,39 @@ sed -i 's|worker_processes .*|worker_processes 1;|' /etc/nginx/nginx.conf
 # nginx ssl
 if [ -n "$SSL_PORT" ] && [ -e "/etc/nginx/ssl/nginx.key" ]; then
     echo "* enable SSL"
-	sed -i 's|#_SSL_PORT_#\(.*\)443\(.*\)|\1'$SSL_PORT'\2|' /etc/nginx/sites-enabled/default
-	sed -i 's|#_SSL_PORT_#||' /etc/nginx/sites-enabled/default
+    sed -i 's|#_SSL_PORT_#\(.*\)443\(.*\)|\1'$SSL_PORT'\2|' /etc/nginx/sites-enabled/default
+    sed -i 's|#_SSL_PORT_#||' /etc/nginx/sites-enabled/default
 fi
 
 # nginx http base authentication
 if [ -n "$HTTP_PASSWORD" ]; then
     echo "* enable HTTP base authentication"
     htpasswd -bc /etc/nginx/.htpasswd $USER $HTTP_PASSWORD
-	sed -i 's|#_HTTP_PASSWORD_#||' /etc/nginx/sites-enabled/default
+    sed -i 's|#_HTTP_PASSWORD_#||' /etc/nginx/sites-enabled/default
 fi
 
 # dynamic prefix path renaming
 if [ -n "$RELATIVE_URL_ROOT" ]; then
     echo "* enable RELATIVE_URL_ROOT: $RELATIVE_URL_ROOT"
-	sed -i 's|#_RELATIVE_URL_ROOT_||' /etc/nginx/sites-enabled/default
-	sed -i 's|_RELATIVE_URL_ROOT_|'$RELATIVE_URL_ROOT'|' /etc/nginx/sites-enabled/default
+    sed -i 's|#_RELATIVE_URL_ROOT_||' /etc/nginx/sites-enabled/default
+    sed -i 's|_RELATIVE_URL_ROOT_|'$RELATIVE_URL_ROOT'|' /etc/nginx/sites-enabled/default
 fi
 
 # Check for files in /etc/startup/ that should be sourced
 # to customize the Docker image
 for stsrc in /etc/startup/*.sh; do
-  if [ -r $stsrc ]; then
-  	source $stsrc
-  fi
+    if [ -r $stsrc ]; then
+        source $stsrc
+    fi
 done
 
 # Install Puppeteer stuff
-cd ${HOME};npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+cd ${HOME}
+npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 
 # clearup
 PASSWORD=
 HTTP_PASSWORD=
 
+nohup /bin/bash -c "sleep 30 && cd ${HOME}/Desktop/scripts/ && DISPLAY=:1 /usr/bin/node $1" &
 exec /usr/local/bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf
