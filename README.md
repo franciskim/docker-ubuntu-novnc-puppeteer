@@ -5,7 +5,7 @@ Docker image to provide HTML5 VNC interface to access a Ubuntu 22.04 LXDE deskto
 
 Available on [Docker hub](https://hub.docker.com/r/franciskim/ubuntu-novnc-puppeteer)
 
-The source files are available on [GitHub](https://github.com/Frederic-Boulanger-UPS/docker-ubuntu-novnc)
+The source files are available on [GitHub](https://github.com/franciskim/docker-ubuntu-novnc-puppeteer)
 
 Based on the work by [Doro Wu](https://github.com/fcwu), adapted by [Frédéric Boulanger](https://github.com/Frederic-Boulanger-UPS)
  see on [Docker](https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/) and [Docker](https://hub.docker.com/r/fredblgr/ubuntu-novnc), respectively.
