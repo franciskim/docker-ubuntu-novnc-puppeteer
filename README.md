@@ -1,7 +1,7 @@
 docker-ubuntu-novnc-puppeteer:latest
 ===================
 
-Docker image to provide HTML5 VNC interface to access a Ubuntu 22.04 LXDE desktop environment that is optimised for running headful Puppeteer instances.
+**Make running headful Puppeteer bots easy with NoVNC and Docker.**
 
 Available on [Docker hub](https://hub.docker.com/r/franciskim/ubuntu-novnc-puppeteer)
 
