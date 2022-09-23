@@ -101,5 +101,5 @@ npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 PASSWORD=
 HTTP_PASSWORD=
 
-nohup /bin/bash -c "sleep 30 && cd ${HOME}/Desktop/scripts/ && DISPLAY=:1 /usr/bin/node $1" &
-exec /usr/local/bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf
+nohup /bin/bash -c "sleep 20 && cd ${HOME}/Desktop/scripts/ && DISPLAY=:1 /usr/bin/node $1" &
+exec /usr/local/bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf > ${HOME}/supervisord.log
