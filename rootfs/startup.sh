@@ -95,11 +95,11 @@ done
 
 # Install Puppeteer stuff
 cd ${HOME}
-npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+npm i puppeteer puppeteer-extra puppeteer-extra-plugin-stealth >/dev/null 2>&1
 
 # clearup
 PASSWORD=
 HTTP_PASSWORD=
 
-nohup /bin/bash -c "sleep 20 && cd ${HOME}/Desktop/scripts/ && DISPLAY=:1 /usr/bin/node $1" &
-exec /usr/local/bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf > ${HOME}/supervisord.log
+nohup /bin/bash -c "sleep 20 && cd ${HOME}/Desktop/scripts/ && DISPLAY=:1 /usr/bin/node $1 $2 $3 $4 $5 $6 $7 $8 $9" &
+exec /usr/local/bin/tini -- supervisord -n -c /etc/supervisor/supervisord.conf >${HOME}/supervisord.log
