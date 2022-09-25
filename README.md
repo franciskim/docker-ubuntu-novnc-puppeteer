@@ -55,7 +55,7 @@ Quick Start
 Run the docker container and access with port `6080`
 
 ```
-docker run -p 6080:80 franciskim/ubuntu-novnc-puppeteer:latest
+docker run -p 6080:80 -e RESOLUTION=1700x950 franciskim/ubuntu-novnc-puppeteer:latest
 ```
 
 Browse http://127.0.0.1:6080/
